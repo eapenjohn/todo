@@ -5,7 +5,10 @@ import { Todo } from '../models/todo.model'
 @Injectable()
 export class TodoService {
   todos = Array<Todo>();
-  constructor() { }
+  constructor() {
+   
+     this.add(new Todo({title: 'john', complete :false}))
+   }
 
   get() {
     return this.todos;

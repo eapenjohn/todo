@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import {TodoService} from '../../services';
+import {Todo} from  '../../models'
+
+
 @Component({
-  selector: 'app-list',
+  selector: 'todos-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
+
 export class ListComponent implements OnInit {
-
-  constructor() { }
-
+   todos:Todo[];
+  constructor( private todoService :TodoService) { }
+  
   ngOnInit() {
+   this.todos= this.todoService.get();
   }
-
+   toggeltodo()
+   {
+     
+   }
 }
+
+// ListComponent.parameters=[TodoService]

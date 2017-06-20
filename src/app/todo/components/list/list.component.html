@@ -1,3 +1,13 @@
 <p>
-  list works!
+  list works! {{todos.length}}
 </p>
+<ul>
+  <li *ngFor="let todo of todos">
+    <div>
+      <input type="checkbox" [checked]="todo.complete" (toggleComplete)="todo.toggle()">
+      <label>{{todo.title}}</label>
+      <button (click)="destroy(todo)">Remove</button>
+    </div>
+  </li>
+</ul>
+<todos-footer></todos-footer>

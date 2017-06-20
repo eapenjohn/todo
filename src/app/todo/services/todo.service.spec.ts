@@ -72,8 +72,4 @@ describe('TodoService', () => {
       expect(todo.complete).toBeFalsy();
     }))
   })
-
-
-
-
 });
