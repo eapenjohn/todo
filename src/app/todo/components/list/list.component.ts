@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-
 import {TodoService} from '../../services';
 import {Todo} from  '../../models'
-
 
 @Component({
   selector: 'todos-list',
@@ -21,6 +19,11 @@ export class ListComponent implements OnInit {
    toggeltodo()
    {
      
+   }
+
+   removeTodo(todo:Todo)
+   {
+     this.todoService.delete
    }
 }
 

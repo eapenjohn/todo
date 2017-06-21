@@ -7,7 +7,7 @@ export class TodoService {
   todos = Array<Todo>();
   constructor() {
    
-     this.add(new Todo({title: 'john', complete :false}))
+    //  this.add(new Todo({title: 'john', complete :false}))
    }
 
   get() {

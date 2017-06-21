@@ -64,12 +64,21 @@ describe('TodoService', () => {
 
   describe('#toggeltodo', () => {
     it('toggle the complete prop value', inject([TodoService], (todoService: TodoService) => {
-        var todo1 = new Todo({ title: 'john', complete: true });
+      var todo1 = new Todo({ title: 'john', complete: true });
       todoService.add(todo1);
 
       todoService.toggleComplete(0)
-      let todo=todoService.getById(0);
+      let todo = todoService.getById(0);
       expect(todo.complete).toBeFalsy();
     }))
+  })
+
+  describe('#delete', () => {
+   it("delete removes item from list", inject([TodoService], (todoService:TodoService) =>{
+      var todo1 = new Todo({ title: 'john', complete: true });
+      todoService.add(todo1);
+
+    //  todoService.delete()
+   }))
   })
 });

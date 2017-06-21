@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
+import { TodoService } from '../../services';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -8,6 +9,7 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers:[TodoService],
       declarations: [ ListComponent ]
     })
     .compileComponents();
