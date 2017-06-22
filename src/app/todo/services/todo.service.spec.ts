@@ -78,7 +78,8 @@ describe('TodoService', () => {
       var todo1 = new Todo({ title: 'john', complete: true });
       todoService.add(todo1);
 
-    //  todoService.delete()
+     let todos= todoService.delete(0)
+      expect(todos.length).toBe(0);
    }))
   })
 });

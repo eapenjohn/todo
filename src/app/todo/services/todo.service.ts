@@ -38,7 +38,8 @@ export class TodoService {
 
   delete(id : number)
   {
-    let todoEntity =this.todos.find(item => item.id === id);
-
+    this.todos =this.todos.filter(item => item.id !== id);
+    return this.todos;
+   
   }
 }

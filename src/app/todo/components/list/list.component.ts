@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
   constructor( private todoService :TodoService) { }
   
   ngOnInit() {
+      this.todoService.add(new Todo({title:'God of small things', complete : false}))
    this.todos= this.todoService.get();
   }
    toggeltodo()
@@ -23,7 +24,7 @@ export class ListComponent implements OnInit {
 
    removeTodo(todo:Todo)
    {
-     this.todoService.delete
+     this.todos=this.todoService.delete(todo.id);
    }
 }
 
