@@ -26,6 +26,10 @@ export class ListComponent implements OnInit {
    {
      this.todos=this.todoService.delete(todo.id);
    }
+   toggleTodoComplete(todo)
+   {
+     
+   }
 }
 
 // ListComponent.parameters=[TodoService]

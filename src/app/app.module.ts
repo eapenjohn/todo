@@ -14,9 +14,7 @@ import { RootComponent } from './todo/components/root/root.component';
   ],
   imports: [
      TodoModule,
-    BrowserModule,
-    FormsModule,
-   
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
