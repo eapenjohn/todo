@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
-import {TodoService} from '../../services';
 import {Todo} from  '../../models';
 
 @Component({
@@ -11,14 +10,17 @@ import {Todo} from  '../../models';
 export class CreateComponent implements OnInit {
 
  public todo: Todo = new Todo();
+ @Output()
+  todoAddEvent: EventEmitter<Todo>= new EventEmitter() 
+
    
-  constructor(private todoService :TodoService) { }
+  constructor() { }
 
   ngOnInit() {
   }
   
   addtTodo()
   {
-   this.todoService.add(this.todo)
+  this.todoAddEvent.emit(this.todo)
   }
 }
