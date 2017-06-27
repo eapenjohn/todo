@@ -10,15 +10,15 @@ import {Todo} from  '../../models';
 })
 export class CreateComponent implements OnInit {
 
- public todo: Todo = new Todo({title:'dd'});
+ public todo: Todo = new Todo();
    
-  constructor() { }
+  constructor(private todoService :TodoService) { }
 
   ngOnInit() {
   }
   
-  addtoodo()
+  addtTodo()
   {
-   console.log('d')
+   this.todoService.add(this.todo)
   }
 }
