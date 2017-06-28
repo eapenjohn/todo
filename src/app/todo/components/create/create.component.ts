@@ -13,7 +13,6 @@ export class CreateComponent implements OnInit {
  @Output()
   todoAddEvent: EventEmitter<Todo>= new EventEmitter() 
 
-   
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +20,6 @@ export class CreateComponent implements OnInit {
   
   addtTodo()
   {
-  this.todoAddEvent.emit(this.todo)
+    this.todoAddEvent.emit(this.todo)
   }
 }

@@ -17,12 +17,12 @@ export class ListComponent implements OnInit {
       this.todoService.add(new Todo({title:'God of small things', complete : false}))
    this.todos= this.todoService.get();
   }
-   toggeltodo()
+   onToggeltodo(todo:Todo)
    {
-     
+     this.todoService.toggleComplete(todo.id);
    }
 
-   removeTodo(todo:Todo)
+   onRemoveTodo(todo:Todo)
    {
      this.todos=this.todoService.delete(todo.id);
    }

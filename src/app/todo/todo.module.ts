@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 
 import {TodoService} from './services';
-import { ListComponent, FooterComponent,CreateComponent} from './components';
-import { RootComponent } from './components/root/root.component'
+import { ListComponent, FooterComponent,CreateComponent, ItemComponent,RootComponent } from './components';
 
 
 @NgModule({
@@ -18,7 +17,9 @@ import { RootComponent } from './components/root/root.component'
      ListComponent,
      RootComponent,
      FooterComponent,
-     CreateComponent
+     CreateComponent,
+    //  TodoComponent,
+     ItemComponent
     ]
 })
 export class TodoModule { }
