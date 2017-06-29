@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 
+import { ItemComponent } from '../item/item.component';
 import { ListComponent } from './list.component';
 import { TodoService } from '../../services';
 import {Todo} from  '../../models'
@@ -11,7 +12,7 @@ describe('ListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       providers: [TodoService],
-      declarations: [ListComponent]
+      declarations: [ListComponent,ItemComponent]
     })
       .compileComponents();
   }));
@@ -29,7 +30,7 @@ describe('ListComponent', () => {
 
   it('removetodo called the service delelte method', inject([TodoService], (todoservice: TodoService) => {
     spyOn(todoservice,'delete');
-    fixture.componentInstance.removeTodo(new Todo({id:0}))
+    fixture.componentInstance.onRemoveTodo(new Todo({id:0}))
  
    expect(todoservice.delete).toHaveBeenCalled();
   }));

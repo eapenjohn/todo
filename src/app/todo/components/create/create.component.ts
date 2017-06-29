@@ -21,5 +21,6 @@ export class CreateComponent implements OnInit {
   addtTodo()
   {
     this.todoAddEvent.emit(this.todo)
+    this.todo= new Todo();
   }
 }
