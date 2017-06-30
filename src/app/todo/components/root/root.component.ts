@@ -16,7 +16,7 @@ export class RootComponent implements OnInit {
 
   onAddTodo(todo)
   {
-    this.todoService.add(todo)
+    this.todoService.add(todo).subscribe();
   }
 
 }

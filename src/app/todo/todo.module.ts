@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
 import {TodoService} from './services';
 import { ListComponent, FooterComponent,CreateComponent, ItemComponent,RootComponent } from './components';
@@ -10,7 +11,8 @@ import { ListComponent, FooterComponent,CreateComponent, ItemComponent,RootCompo
   providers:[TodoService],
   imports: [
     CommonModule,
-     FormsModule 
+     FormsModule ,
+     HttpModule
   ],
   exports:[RootComponent],
   declarations: [

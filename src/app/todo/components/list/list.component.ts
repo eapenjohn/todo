@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   
   ngOnInit() {
       this.todoService.add(new Todo({title:'God of small things', complete : false}))
-   this.todos= this.todoService.get();
+  this.todoService.get().subscribe(todos => this.todos = todos);
   }
    onToggeltodo(todo:Todo)
    {

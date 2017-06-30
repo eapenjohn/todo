@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
   constructor(private todoservice: TodoService) { }
 
   ngOnInit() {
-   this.todos = this.todoservice.get();
+   this.todoservice.get().subscribe(todos => this.todos= todos);
   }
 
 }
