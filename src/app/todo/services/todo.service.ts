@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http'
+import { Http, Response } from '@angular/http'
 import {Observable} from 'rxjs'
 import 'rxjs/add/operator/map';
 
@@ -19,6 +19,9 @@ export class TodoService {
    return  this.http.get(environment.apiUrl+'/todos').map((response) =>{
        let todos= response.json();
        return  todos.map((item) => new Todo(item))
+     }).catch((error : Response | any)=>{
+        console.log(error)
+       return Observable.throw(error);
      })
   }
 
@@ -48,7 +51,7 @@ export class TodoService {
 
   delete(id : number)
   {
-    this.todos =this.todos.filter(item => item.id !== id);
+    this.http.delete(environment.apiUrl+'/todos/'+id)
     return this.todos;
    
   }
