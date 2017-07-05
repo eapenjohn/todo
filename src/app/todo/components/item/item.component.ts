@@ -25,6 +25,7 @@ export class ItemComponent implements OnInit {
 
   remove()
   {
+    console.log('dd')
     this.removeEvent.emit(this.todo)
   }
 
