@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TodoService } from '../../services';
+import { TodoService, ToggleService } from '../../services';
 import { Todo } from '../../models'
 
 @Component({
@@ -10,11 +10,11 @@ import { Todo } from '../../models'
 })
 export class RootComponent implements OnInit {
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private toggeleService : ToggleService) { }
   todos: Todo[];
   ngOnInit() {
     this.todoService.get().subscribe((data) => this.todos = data)
-
+    this.toggeleService.obsevables.subscribe((id)=> this.onToggeltodo(id))
   }
 
   onAddTodo(todo) {
@@ -24,9 +24,9 @@ export class RootComponent implements OnInit {
     });
   }
 
-  onToggeltodo()
+  onToggeltodo(id)
   {
-    console.log('jjjlfjsdafldsj')
+   this.todoService.toggleComplete(id);
   }
 
   onDelete(id) {

@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 
-import {TodoService} from './services';
+import {TodoService, ToggleService} from './services';
 import { ListComponent, FooterComponent,CreateComponent, ItemComponent,RootComponent } from './components';
 
 
 @NgModule({
-  providers:[TodoService],
+  providers:[TodoService, ToggleService],
   imports: [
     CommonModule,
      FormsModule ,
