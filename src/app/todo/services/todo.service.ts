@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http'
-import { Observable } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 import 'rxjs/add/operator/map';
 
 import { Todo } from '../models/todo.model'
@@ -16,10 +16,15 @@ export class TodoService {
   }
 
   get() {
-    return this.http.get(environment.apiUrl + '/todos').map((response) => {
+        let subject = new Subject<Todo[]>()
+  var get =this.http.get(environment.apiUrl + '/todos').map((response) => {
       let todos = response.json();
       return todos.map((item) => new Todo(item))
     }).catch(this.handleError)
+
+    get.subscribe(subject)
+    return subject.asObservable();
+     
   }
 
   add(todo: Todo) {
@@ -29,7 +34,7 @@ export class TodoService {
 
   }
 
-  getById(id: number) {
+  getById(id: number) : Observable<Todo> {
     return this.http.get(environment.apiUrl + '/todos/'+ id)
     .map(response => new Todo(response.json()))
     .catch(this.handleError);
@@ -51,7 +56,7 @@ export class TodoService {
 
   delete(id: number) {
    return this.http.delete(environment.apiUrl + '/todos/' + id)
-   .map(response => null )
+   .map(response => true )
    .catch(this.handleError);
 
   }

@@ -1,4 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { Observable, Subject } from 'rxjs'
+import 'rxjs/add/operator/map';
 
 import { TodoService } from './todo.service';
 import { Todo } from '../models/todo.model'
