@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 import { TodoService } from '../../services';
 import { Todo } from '../../models'
@@ -6,7 +6,8 @@ import { Todo } from '../../models'
 @Component({
   selector: 'todos-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class ListComponent implements OnInit {

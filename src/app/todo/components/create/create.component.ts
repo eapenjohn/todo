@@ -5,7 +5,7 @@ import {Todo} from  '../../models';
 @Component({
   selector: 'todo-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
 
