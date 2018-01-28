@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { TodoService } from '../../services';
 import { Todo } from '../../models'
@@ -7,14 +7,14 @@ import { Todo } from '../../models'
 @Component({
   selector: 'todos-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  @Input()
    todos : Todo []
-  constructor(private todoservice: TodoService) { }
+  constructor() { }
 
   ngOnInit() {
-   this.todoservice.get().subscribe(todos => this.todos= todos);
   }
 
 }

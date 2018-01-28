@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { TodoService, ToggleService } from '../../services';
 import {Todo} from  '../../models'
 
 @Component({
@@ -18,19 +19,21 @@ export class ItemComponent implements OnInit {
    @Output()
    toggleEvent= new EventEmitter<Todo>();
 
-  constructor() { }
+  constructor(private toggelSevice: ToggleService) { }
 
   ngOnInit() {
   }
 
   remove()
   {
+    console.log('dd')
     this.removeEvent.emit(this.todo)
   }
 
   toggleTodoComplete()
   {
-   this.toggleEvent.emit(this.todo)
+    this.toggelSevice.toggled(this.todo.id)
+  // this.toggleEvent.emit(this.todo)
   }
 
 }
