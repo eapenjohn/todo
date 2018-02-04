@@ -16,21 +16,13 @@ export class TodoService {
   }
 
   get() {
-    let subject = new Subject<Todo[]>()
-    var get = this.http.get(environment.apiUrl + '/todos').map((response) => {
-      let todos = response.json();
-      return todos.map((item) => new Todo(item))
-    }).catch(this.handleError)
-
-    get.subscribe(subject)
-    return subject.asObservable();
-
+    return Observable.of(this.todos);
   }
 
   add(todo: Todo) {
-    return this.http.post(environment.apiUrl + '/todos', todo)
-      .map(response => new Todo(response.json()))
-      .catch(this.handleError);
+    todo.id = this.todos.length >0 ? this.todos[this.todos.length -1 ].id +1 :1;
+    this.todos.push(todo);
+    return Observable.of(todo);
 
   }
 
@@ -55,10 +47,8 @@ export class TodoService {
   }
 
   delete(id: number) {
-    return this.http.delete(environment.apiUrl + '/todos/' + id)
-      .map(response => true)
-      .catch(this.handleError);
-
+   this.todos = this.todos.filter(todo => todo.id !== id);
+   return Observable.of(true);
   }
 
   handleError(error: Response | any) {

@@ -10,31 +10,24 @@ import { Todo } from '../../models'
 })
 export class RootComponent implements OnInit {
 
-  constructor(private todoService: TodoService, private toggeleService : ToggleService) { }
+  constructor(private todoService: TodoService, private toggeleService: ToggleService) { }
   todos: Todo[];
   ngOnInit() {
-    this.todoService.get().subscribe((data) => { console.log('ss11'); this.todos = data })
-      this.todoService.get().subscribe((data) => { console.log('ss111'); this.todos = data })
-        this.todoService.get().subscribe((data) => { console.log('ss1111'); this.todos = data })
-          this.todoService.get().subscribe((data) => { console.log('1ss11'); this.todos = data })
-    this.toggeleService.obsevables.subscribe((id)=> this.onToggeltodo(id))
+    this.todoService.get().subscribe((data) => { this.todos = data })
+    this.toggeleService.obsevables.subscribe((id) => this.onToggeltodo(id))
   }
 
   onAddTodo(todo) {
-      this.todoService.get().subscribe((data) => { console.log('ss'); this.todos = data })
+
     this.todoService.add(todo).subscribe((todo) => {
-      console.log(todo)
-      this.todos.push(todo)
     });
   }
 
-  onToggeltodo(id)
-  {
-   this.todoService.toggleComplete(id);
+  onToggeltodo(id) {
+    this.todoService.toggleComplete(id);
   }
 
   onDelete(id) {
-    console.log('rerrere')
     this.todoService.delete(id).subscribe(() => this.todos = this.todos.filter((item) => item.id !== id))
   }
 }

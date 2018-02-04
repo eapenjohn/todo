@@ -1,9 +1,8 @@
 export class Todo {
-    id : number;
+    id: number;
     title: string;
-    complete : boolean;
-    constructor(data=null)
-    {
+    complete: boolean;
+    constructor(data = null) {
         Object.assign(this, data)
     }
 }
